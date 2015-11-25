@@ -1,0 +1,67 @@
+
+/* ==========================================================================
+
+   HELPERS
+
+   ========================================================================== */
+
+/**
+ * Hide or show things responsively
+ */
+
+.u-hideDesk {
+    @include respond-to(sm) { display: none !important; }
+}
+
+.u-hideMobile {
+    display: none;
+    @include respond-to(sm) { display: block !important; }
+}
+
+
+/**
+ * Full height or width
+ */
+
+.u-fullHeight { height: 100%; }
+.u-fullWidth  { width: 100%; }
+
+
+/**
+ * Rules
+ */
+
+// .u-ruleTDark    { @include scut-border(1px solid lighten($color-text,10%), y n n n) }
+
+@mixin SectionRuler() {
+    border-top: 1px solid $color-grey-rule;
+    padding-top: $space;
+}
+
+.SectionRuler {
+    @include SectionRuler();
+}
+
+.sm-SectionRuler {
+    @include SectionRuler();
+    
+    @include respond-to(sm) {
+        display: none;
+    }
+}
+
+
+/**
+ * Background colors
+ */
+
+.u-bgNeutral { background-color: $color-bg-neutral !important; }
+.u-bgLink    { background-color: $color-link !important; }
+.u-bgBg      { background-color: $color-bg !important; }
+
+
+/**
+ * Z-index mixin
+ */
+
+@mixin zIndex($zIndex: $zIndex-1) { z-index: $zIndex; }

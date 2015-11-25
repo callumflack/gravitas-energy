@@ -1,0 +1,107 @@
+
+
+// --------------------------------------------------------------------------
+// TYPOGRAPHY MIXINS
+// --------------------------------------------------------------------------
+
+
+// Reset for @font-face
+// --------------------------------------------------------------------------
+
+@mixin TypeReset() {
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+// Text styles
+// --------------------------------------------------------------------------
+
+@mixin TextRg() {
+    @include TypeReset();
+    @include remFallback($base-font-size-unit);
+    color: $color-text;
+    font-family: $font-text;
+    letter-spacing: 0;
+    line-height: $base-line-height-unit;
+    text-align: left;
+    text-transform: none;
+}
+
+@mixin TextSm(
+    $color: $color-text,
+    $fontFamily: $sans-med,
+    $letterSpacing: 0.02em,
+    $lineHeight: 1.5,
+    $margin: 0 0 $space--X15
+) {
+    @include TypeReset();
+    @include remFallback($base-font-size-unit);
+    font-family: $fontFamily;
+    color: $color;
+    letter-spacing: $letterSpacing;
+    line-height: $lineHeight;
+    margin: $margin;
+
+    a {
+        background-position: 0 #{$base-font-size-unit}px !important;
+    }
+
+    @include respond-to(sm) {
+    }
+}
+
+
+// Site header
+// --------------------------------------------------------------------------
+
+@mixin Display() {
+    @include TypeReset();
+    @include remFallback($sizeHeaderLg);
+    border-bottom: 1px solid $color-white;
+    color: $color-white;
+    font-family: $sans-light;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    margin-bottom: $space * 0.75;
+    padding-bottom: $space * 0.25;
+
+    @include respond-to(sm) {
+
+    }
+}
+
+
+// Section headline / lede
+// --------------------------------------------------------------------------
+
+@mixin HeadlineMd() {
+    @include TypeReset();
+    @include remFallback($base-font-size-unit - 1);
+    color: $color-text;
+    font-family: $sans-bold;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    margin-bottom: $space * 1.5;
+    text-transform: uppercase;
+
+    span {
+        border-bottom: 1px solid $color-text;
+        padding-bottom: $space * 0.25;
+    }
+
+    @include respond-to(sm) {
+    }
+}
+
+@mixin HeadlineSm() {
+    @include TypeReset();
+    @include remFallback($base-font-size-unit + 5);
+    @include remFallback($sizeHeaderSm);
+    color: $color-text;
+    font-family: $sans-bold;
+    line-height: calc(#{$r-sizeHeaderSm} * #{$base-line-height-unit});
+    letter-spacing: 0.03em;
+    margin-bottom: $space * 0.25;
+    margin-bottom: 0;
+}

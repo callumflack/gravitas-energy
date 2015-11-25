@@ -1,0 +1,168 @@
+
+/* ==========================================================================
+
+    TYPOGRAPHIC ANCHORS
+
+   ========================================================================== */
+
+/**
+ * Anchor styles mixin
+ */
+
+$linkRuleBlack  : linear-gradient(to bottom, rgba($color-black,0) 50%, rgba($color-black,0.7) 50%);
+$linkRuleGrey   : linear-gradient(to bottom, rgba($color-grey,0) 50%, rgba($color-grey,0.7) 50%);
+$linkRuleBrand  : linear-gradient(to bottom, rgba($color-brand,0) 50%, rgba($color-brand,0.7) 50%);
+$linkRuleWhite  : linear-gradient(to bottom, rgba($color-white,0) 50%, rgba($color-white,0.7) 50%);
+
+@mixin u-link(
+    $rule: $linkRuleBlack,
+    $hover-rule: none,
+    $color: currentColor,
+    $hover-color: $color-brand
+
+    ) {
+
+    @if $rule == 'none' {
+        background-image: none;
+        color: currentColor;
+        // padding-bottom: 0;
+        text-decoration: none;
+    }
+
+    @else {
+        background-image: $rule;
+        background-repeat: repeat-x;
+        background-size: 2px 2px;
+        // background-position: 0 rem(22);
+        background-position: 0 100%;
+        color: $color;
+        padding-bottom: rem(4);
+        text-decoration: none;
+
+        @include bp(sm) { background-position: 0 rem(18); }
+    }
+
+    @include on-event() {
+        background-image: $hover-rule;
+        color: $hover-color;
+        text-decoration: none;
+    }
+}
+
+@mixin u-childLink() {
+    a { @include u-link(); }
+}
+
+
+
+/* Brand text anchor
+   ========================================================================== */
+
+@mixin u-linkBrand() {
+    @include u-link(
+        $linkRuleBrand,
+        none,
+        $color-brand,
+        inherit
+    );
+}
+
+@mixin u-childLinkBrand() {
+    a { @include u-linkBrand(); }
+}
+
+
+
+/* Grey text anchor
+   ========================================================================== */
+
+@mixin u-linkGrey() {
+    @include u-link(
+        $linkRuleGrey,
+        none,
+        inherit,
+        inherit
+    );
+}
+
+@mixin u-childLinkGrey() {
+    a { @include u-linkGrey(); }
+}
+
+
+
+/* White text anchor
+   ========================================================================== */
+
+@mixin u-linkWhite() {
+    @include u-link(
+        $linkRuleWhite,
+        none,
+        inherit,
+        inherit
+    );
+}
+
+@mixin u-childLinkWhite() {
+    a { @include u-linkWhite(); }
+}
+
+
+
+/* Large headline anchor
+   ========================================================================== */
+
+@mixin u-linkHeadline() {
+    @include u-link(
+        none,
+        none,
+        inherit,
+        inherit
+    );
+}
+
+@mixin u-childLinkHeadline() {
+    a { @include u-linkHeadline(); }
+}
+
+
+
+/* No visual appearance
+   ========================================================================== */
+
+@mixin u-linkInvisible() {
+    @include u-link(
+        none !important,
+        none,
+        inherit,
+        inherit
+    );
+}
+
+@mixin u-childLinkInvisible() {
+    a { @include u-linkInvisible(); }
+}
+
+
+
+/* Classed
+   ========================================================================== */
+
+a,
+.u-link                 { @include u-link(); }
+.u-childLink            { @include u-childLink(); }
+
+.u-linkBrand            { @include u-linkBrand(); }
+.u-childLinkBrand       { @include u-childLinkBrand(); }
+
+.u-linkGrey             { @include u-linkGrey(); }
+.u-childLinkGrey        { @include u-childLinkGrey(); }
+
+.u-linkWhite            { @include u-linkWhite(); }
+.u-childLinkWhite       { @include u-childLinkWhite(); }
+
+.u-linkHeadline         { @include u-linkHeadline(); }
+.u-childLinkHeadline    { @include u-childLinkHeadline(); }
+
+.u-linkInvisible        { @include u-linkInvisible(); }
+.u-childLinkInvisible   { @include u-childLinkInvisible(); }

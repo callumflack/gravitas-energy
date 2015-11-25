@@ -1,0 +1,48 @@
+
+
+// --------------------------------------------------------------------------
+// FORM
+// --------------------------------------------------------------------------
+
+
+#Contact {
+    background-color: $color-bg-neutral;
+    margin-top: $space * 3;
+    padding-bottom: $space * 3;
+}
+
+.Form-grid {
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+input,
+textarea,
+select {
+    @include TextRg();
+    @include remFallback($sizeText);
+    background: $color-white;
+    border: 0;
+    border: 1px solid $color-text-tint;
+    border-radius: rem(4);
+    color: $color-text-grey;
+    display: inline-block;
+    padding: rem(15) rem(20);
+    resize: none;
+    -webkit-appearance: none;
+    width: 100%;
+
+    &:not(:last-child) {
+        margin: 0 0 ($space * 0.5);
+    }
+
+    &::-webkit-input-placeholder { color: $color-text-lite; }
+    &:-moz-placeholder { color: $color-text-lite; }
+    &::-moz-placeholder { color: $color-text-lite; }
+    &:-ms-input-placeholder { color: $color-text-lite; }
+
+    @include on-event() {
+        outline: 0;
+    }
+}

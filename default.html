@@ -1,0 +1,47 @@
+{% capture content %}
+    <!-- {{ body }} -->
+
+    <div class="Container">
+        <section class="Section" id="What">
+            <div class="Section-item u-before1of12 u-size7of12">
+                <h2 class=""><span>What we do</span></h2>
+                <p class="Section-intro"> {{meta['what']}} <span>How?</span></p>
+            </div>
+            <div class="Section-item Section-item--advice u-before5of12 u-size7of12">
+                <h3 class="">Expert advice</h3>
+                <p class="">{{meta['reason-expert-advice']}}</p>
+            </div>
+            <div class="Section-item Section-item--sustainable u-before3of12 u-size7of12">
+                <h3 class="">Switch to sustainable power</h3>
+                <p class="">{{meta['reason-sustainable']}}</p>
+            </div>
+            <div class="Section-item Section-item--saving u-before5of12 u-size7of12">
+                <h3 class="">Start saving</h3>
+                <p class="">{{meta['reason-saving']}}</p>
+            </div>
+        </section>
+
+        <section class="Section" id="Who">
+            <div class="Section-item u-size7of12 Grid-cell--center">
+                <h3 class="">{{meta['who-headline']}}</h3>
+                <p class="">{{meta['who']}}</p>
+            </div>
+            <p class="Who-directive">
+                <a class="Button" href="#Contact">Get Started<i class="Arrow-right"></i></a>
+            </p>
+        </section>
+
+        <section class="Section" id="About">
+            <div class="Section-item u-before1of12 u-size9of12">
+                <h2 class=""><span>About Us</span></h2>
+                <h3 class="">{{meta['about-headline']}}</h3>
+                <p class="">{{meta['about']}}</p>
+                <img class="u-marginT" src="/assets/build/img/accreditation_logos.png" alt="Gravitas Energy accreditations">
+            </div>
+
+        </section>
+
+    </div>
+{% endcapture %}
+
+{% include 'layouts/default' %}

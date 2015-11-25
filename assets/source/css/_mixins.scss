@@ -1,0 +1,472 @@
+
+/* ==================================================================
+
+    MIXINS
+
+   ================================================================== */
+
+/**
+ * Clearfix: for modern browsers.
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+
+
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784
+/// @link https://css-tricks.com/snippets/sass/simplifying-contexts-events/
+
+@mixin on-event($self: false) {
+    @if $self {
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    } @else {
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    }
+}
+
+
+
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+/// @link https://css-tricks.com/snippets/sass/simplifying-contexts-events/
+/// .my-element {
+///     display: flex;
+///     @include when-inside('.no-flexbox') {
+///         display: table;
+///     }
+/// }
+
+@mixin when-inside($context) {
+    #{$context} & {
+        @content;
+    }
+}
+
+
+
+/**
+ * Absolute center
+ * Req's a parent w/ 'position: relative'
+ */
+
+@mixin u-absoluteCenter() {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+
+
+/**
+ * Sizing
+ * @link: http://www.sitepoint.com/sass-mixins-kickstart-project/
+ */
+
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+
+
+
+/**
+ * Position
+ * @link: http://www.sitepoint.com/sass-mixins-kickstart-project/
+ * @usage: .element { @include absolute(top 0 left 1em); }
+ */
+
+// @mixin position($position, $args) {
+//   @each $o in top right bottom left {
+//         $i: index($args, $o);
+//
+//     @if $i and $i + 1< = length($args) and type-of(nth($args, $i + 1)) == number  {
+//         #{$o}: nth($args, $i + 1);
+//     }
+//   }
+//
+//   position: $position;
+// }
+//
+// @mixin absolute($args) { @include position("absolute", $args); }
+// @mixin fixed($args)    { @include position("fixed", $args); }
+// @mixin relative($args) { @include position("relative", $args); }
+
+
+
+
+/**
+ * Scut strip unit
+ * http://davidtheclark.github.io/scut/strip-unit.html
+ */
+
+@function scut-strip-unit (
+    $num
+) {
+
+    @return $num / ($num * 0 + 1);
+
+}
+
+
+
+
+/**
+ * Scut px to rem
+ * http://davidtheclark.github.io/scut/rem.html
+ * Requires: `scut-strip-unit`.
+ * Renamed rem() from scut-rem() for ease of use.
+ */
+
+$scut-rem-base: 16 !default;
+
+@function rem (
+    $pixels
+) {
+
+    $rem-vals: ();
+    @each $val in $pixels {
+        $val-in-rems: scut-strip-unit($val) / $scut-rem-base * 1rem;
+        $rem-vals: append($rem-vals, $val-in-rems);
+    }
+
+    @if length($rem-vals) == 1 {
+        // return a single value instead of a list,
+        // so it can be used in calculations
+        @return nth($rem-vals, 1);
+    }
+    @else {
+        @return $rem-vals;
+    }
+
+}
+
+
+
+
+/**
+ * Scut rem fallback
+ * http://davidtheclark.github.io/scut/remFallback.html
+ * Requires: scut-rem and scut-strip-unit.
+ * Renamed remFallback() from scut-remFallback() for ease of use.
+ */
+
+@mixin remFallback (
+    $pixels,
+    $property: font-size
+) {
+
+    $px-vals: null;
+    @each $val in $pixels {
+        $val-in-px: scut-strip-unit($val) * 1px;
+        $px-vals: append($px-vals, $val-in-px);
+    }
+    $rem-vals: rem($pixels);
+
+    #{$property}: $px-vals;
+    #{$property}: $rem-vals;
+
+}
+
+
+
+
+/*
+ * Scut font-face
+ * http://davidtheclark.github.io/scut/font-face.html
+ * Renamed font-face() from scut-font-face() for ease of use.
+ */
+
+@function main-src($formats, $file-path, $font-family) {
+    // Return the list of `src` values, in order, that
+    // a good `@font-face` will need, including only
+    // those formats specified in the list `$formats`.
+    $result: ();
+    @if index($formats, eot) {
+        $eot-val: url('#{$file-path}.eot?#iefix') format('embedded-opentype');
+        $result: append($result, $eot-val, comma);
+    }
+    @if index($formats, woff) {
+        $woff-val: url('#{$file-path}.woff') format('woff');
+        $result: append($result, $woff-val, comma);
+    }
+    @if index($formats, ttf) {
+        $ttf-val: url('#{$file-path}.ttf') format('truetype');
+        $result: append($result, $ttf-val, comma);
+    }
+    @if index($formats, svg) {
+        $svg-val: url('#{$file-path}.svg##{$font-family}') format('svg');
+        $result: append($result, $svg-val, comma);
+    }
+    @return $result;
+}
+
+@mixin font-face (
+    $font-family,
+    $file-path,
+    $weight: normal,
+    $style: normal,
+    $formats: eot woff ttf svg
+) {
+
+    @if index('italic' 'oblique', $weight) {
+        $style: $weight;
+        $weight: normal;
+    }
+
+    @font-face {
+        font-family: $font-family;
+        font-weight: $weight;
+        font-style: $style;
+
+        @if index($formats, eot) {
+            src: url('#{$file-path}.eot');
+        }
+        src: main-src($formats, $file-path, $font-family);
+    }
+
+}
+
+
+
+
+// Inuit Maths helpers.
+// Halve and double numbers, returning rounded integers. E.g.:
+//
+// .foo {
+//     padding: halve(3.2px);
+// }
+//
+
+@function quarter($inuit-number) {
+    @return round($inuit-number / 4);
+}
+
+@function halve($inuit-number) {
+    @return round($inuit-number / 2);
+}
+
+@function double($inuit-number) {
+    @return round($inuit-number * 2);
+}
+
+@function quadruple($inuit-number) {
+    @return round($inuit-number * 4);
+}
+
+
+
+
+// Retina images
+//
+// Short retina mixin for setting background-image and -size
+
+// .img-retina(@file-1x; @file-2x; @width-1x; @height-1x) {
+//   background-image: url("@{file-1x}");
+
+//   @media
+//   only screen and (-webkit-min-device-pixel-ratio: 2),
+//   only screen and (   min--moz-device-pixel-ratio: 2),
+//   only screen and (     -o-min-device-pixel-ratio: 2/1),
+//   only screen and (        min-device-pixel-ratio: 2),
+//   only screen and (                min-resolution: 192dpi),
+//   only screen and (                min-resolution: 2dppx) {
+//     background-image: url("@{file-2x}");
+//     background-size: @width-1x @height-1x;
+//   }
+// }
+
+
+
+
+// https://github.com/IanLunn/Hover/blob/master/scss/_hacks.scss
+// As is often the case, some devices/browsers need additional code to get CSS to work
+// in the most desired way. These mixins are used to quickly drop in hacks for each element
+// Find out more here: https://github.com/IanLunn/Hover/wiki/Hacks-Explained
+// @CF: 1. 'will-change' is almost available. See: https://dev.opera.com/articles/css-will-change-property/
+
+@mixin hardwareAccel() {
+    // Improve performance on mobile/tablet devices
+    transform: translateZ(0);
+}
+
+@mixin improveAntiAlias() {
+    // Improve aliasing on mobile/tablet devices
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+@mixin fontSmooth() {
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin forceBlockLevel() {
+    // Transforms need to be block-level to work
+    display: inline-block;
+    // vertical-align: middle;
+}
+
+@mixin anticipatePainting {
+    will-change: all; /* 1 */
+}
+
+@mixin smoothTransition() {
+    @include forceBlockLevel();
+    @include hardwareAccel();
+    /* @include improveAntiAlias(); */
+    @include fontSmooth();
+    /* @include anticipatePainting(); */
+}
+
+
+
+
+/**
+ * easy media queries
+ * @include bp(tablet) { … };
+ * http://css-tricks.com/conditional-media-query-mixins/
+ * See also: foundation, bootstrap, inuit
+ */
+
+$screen-sm: 480;
+$screen-md: 768;
+$screen-lg: 1408;
+$screen-xl: 1920;
+
+@mixin bp($point) {
+    @if $point == sm {
+        @media (max-width: ($screen-sm - 1) / $scut-rem-base * 1em) { @content; } //479px or 30em
+        /* @media (max-width: 30em) { @content; } */ //480px
+    }
+    @else if $point == sm-md {
+        @media (min-width: 488px) and (max-width: 768px) { @content; } //480-767
+        // @media (min-width: $screen-sm  / $scut-rem-base * 1em) and (max-width: ($screen-md - 1)  / $scut-rem-base * 1em ) { @content; } //480-767
+        // @media (min-width: $screen-sm) and (max-width: ($screen-md - 1) ) { @content; } //480-767
+    }
+    @else if $point == md-down {
+        /* @media (max-width: calc(48em -1px) ) { @content; } */ //767px
+        @media (max-width: ($screen-md - 1) / $scut-rem-base * 1em) { @content; } //767px or 48em - 1px
+    }
+    @else if $point == md-up {
+        @media (min-width: ($screen-md + 1) / $scut-rem-base * 1em) { @content; } //768px or 48em
+    }
+    @else if $point == md-lg {
+        @media (min-width: 48em) and (max-width: calc(75em - 1px)) { @content; } //768-1199px
+    }
+    @else if $point == lg-down {
+        @media (max-width: calc(88em - 1px)) { @content; } //1407px
+    }
+    @else if $point == lg {
+        @media (min-width: 88em) { @content; } //1408px
+    }
+    @else if $point == lg-up {
+        @media (min-width: 120em) { @content; } //1920px
+    }
+}
+
+
+
+
+/// Responsive manager.
+/// @access public
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+/// @link http://sass-guidelin.es/#breakpoint-manager Sass Guidelines - Breakpoint Manager
+/// @link http://www.sitepoint.com/managing-responsive-breakpoints-sass/
+
+@mixin respond-to($breakpoint) {
+    $raw-query: map-get($breakpoints, $breakpoint);
+
+    @if $raw-query {
+        $query: if(type-of($raw-query) == 'string', unquote($raw-query), inspect($raw-query));
+
+        @media #{$query} {
+            @content;
+        }
+
+    } @else {
+        @error 'No value found for `#{$breakpoint}`. '
+             + 'Please make sure it is defined in `$breakpoints` map.';
+    }
+}
+
+
+
+
+/// Get a z-index value from a layer name
+/// @access public
+/// @param {String} $layer - Layer's name
+/// @return {Number}
+/// @require $z-indexes
+/// @link http://sass-guidelin.es/#errors
+/// @link https://jonsuh.com/blog/organizing-z-index-with-sass/
+
+@function z-index($key) {
+    @if not map-has-key($z-indexes, $key) {
+        @error 'There is no layer named `#{$layer}` in $z-indexes. '
+             + 'Layer should be one of #{map-keys($z-indexes)}.';
+    }
+
+    @return map-get($z-indexes, $key);
+}
+
+@mixin z-index($key) {
+    z-index: z-index($key);
+}
+
+
+/// Get a font weight value from a layer name
+/// @access public
+/// @param {String} $layer - Layer's name
+/// @return {Number}
+/// @require $font-weights
+/// @link http://sass-guidelin.es/#errors
+/// @link https://jonsuh.com/blog/organizing-z-index-with-sass/
+
+@function font-weight($key) {
+    @if not map-has-key($font-weights, $key) {
+        @error 'There is no key named `#{$key}` in $font-weights. '
+             + 'Key should be one of #{map-keys($font-weights)}.';
+    }
+
+    @return map-get($font-weights, $key);
+}
+
+@mixin font-weight($key) {
+    // font-family: $font;
+    font-weight: font-weight($key);
+}

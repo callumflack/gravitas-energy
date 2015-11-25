@@ -1,0 +1,54 @@
+
+
+// --------------------------------------------------------------------------
+// TYPOGRAPHY MIXINS
+// --------------------------------------------------------------------------
+
+
+// Text styles
+// --------------------------------------------------------------------------
+
+h1 { @include Display(); }
+h2 { @include HeadlineMd(); }
+h3 { @include HeadlineSm(); }
+
+
+
+
+
+
+
+
+// Icons
+// --------------------------------------------------------------------------
+
+.Icon {
+    margin-right: rem(3);
+    position: relative;
+    top: -1px;
+
+    > img {
+        height: rem(24);
+        width: rem(24);
+    }
+}
+
+.Icon--md {
+    margin-right: rem(9);
+
+    > img {
+        height: rem(39);
+        width: rem(39);
+    }
+}
+
+@include respond-to(sm) {
+    .Icon--md {
+        // margin-right: rem(5);
+
+        > img {
+            height: rem(32);
+            width: rem(32);
+        }
+    }
+}

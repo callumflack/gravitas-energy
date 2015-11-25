@@ -1,0 +1,280 @@
+
+/* ==================================================================
+
+   BUTTONS
+
+   ================================================================== */
+
+
+.Button {
+    @include HeadlineMd();
+    background-color: $color-text;
+    border: 0;
+    border-radius: rem(4);
+    color: $color-white;
+    margin-bottom: 0;
+    padding: rem(18) rem(32) rem(12);
+    text-align: center;
+
+    span {
+        border-bottom: 1px solid $color-text;
+        padding-bottom: $space * 0.25;
+    }
+
+    @include on-event() {
+        color: darken($color-white,10%);
+    }
+}
+
+.Button--lg {
+    padding: rem(18) ($space * 2) rem(12);
+}
+
+.Button--rev {
+    background-color: $color-white;
+    color: $color-text;
+
+    @include on-event() {
+        background-color: darken($color-white,10%);
+        color: $color-text;
+    }
+}
+
+.Button--alt {
+    background-color: $color-brand-alt;
+    border: 1px solid transparent;
+    color: $color-white;
+
+    @include on-event() {
+        background-color: darken($color-brand-alt,10%);
+        color: $color-white;
+    }
+}
+
+.Button--transparent {
+    background-color: $color-bg-neutral;
+    color: $color-text;
+    cursor: default; // CHEATING
+
+    @include on-event() {
+        color: $color-text;
+    }
+}
+
+
+/**
+ * Inline list of small buttons
+ */
+
+@mixin Button--inlineList() {
+    // @include inlineListSpace();
+    // @include Headline();
+    @include smoothTransition();
+    border-radius: 0;
+    border-color: $color-grey;
+    // border-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    padding: rem(13) rem(22) rem(10);
+    // min-width: rem(140);
+    text-align: center;
+
+    @include on-event() {
+        @include zIndex(0);
+        border-color: $color-link;
+        color: white;
+
+        &:nth-of-type(even) {
+            border-left-color: $color-link;
+        }
+    }
+
+    &:nth-of-type(2) {
+        border-left-color: transparent;
+    }
+
+    &.is-grey {
+        color: $color-grey;
+        border-right-color: lighten($color-text,70%);
+
+        @include on-event() {
+            // color: $color-grey !important;
+            border-right-color: lighten($color-text,70%);
+        }
+
+        &:last-of-type {
+            border-right-color: transparent;
+        }
+    }
+}
+
+.Button--inlineList { @include Button--inlineList() }
+
+
+/**
+ * Button w/ background transition
+ * From: http://ianlunn.github.io/Hover/
+ *
+ * 1. This code introduces the block-inline spacing
+ *    problem. Not sure of the culprit.
+ */
+
+@mixin Button--transSweep() {
+    @include smoothTransition();
+    transition-property: color;
+    transition-duration: 0.3s;
+    // vertical-align: middle;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    &:before {
+        background-color: $color-link;
+        bottom: 0;
+        content: "";
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition-property: transform;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-out;
+        z-index: -1;
+    }
+
+    @include on-event() {
+        background-image: none;
+        color: white;
+    }
+
+    &:hover:before,
+    &:focus:before,
+    &:active:before {
+        transform: scaleX(1);
+    }
+
+    .is-grey:before {
+        background-color: lighten($color-link,40%);
+    }
+}
+
+.Button--transSweep {
+    @include Button--transSweep();
+}
+
+
+.Button--transSweep + .Button--transSweep {
+    margin-left: -1px; /* 1 */
+}
+
+
+/**
+ * Button w/ border transition
+ * From: http://ianlunn.github.io/Hover/
+ */
+
+@mixin Button--transRule() {
+    @include smoothTransition();
+    border-radius: 0;
+    padding-bottom: 0;
+    position: relative;
+
+    &:before {
+        background-color: $color-text-rule;
+        bottom: 1px;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        right: 100%;
+        transition-property: right;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-out;
+        z-index: -1;
+
+        @include bp(sm) { background-color: transparent; }
+    }
+
+    &:hover:before,
+    &:focus:before,
+    &:active:before,
+    &.is-active:before {
+        right: 0;
+    }
+
+    &:focus:before,
+    &:active:before,
+    &.is-active:before {
+        background-color: $color-link;
+    }
+
+    // for this project, the link underline is a background-image
+    background-image: $linkRuleBlack;
+    background-repeat: repeat-x;
+    background-size: 2px 2px;
+    background-position: 0 30px;
+    color: $color-text;
+    text-decoration: none;
+
+    @include bp(sm) { background-position: 0 24px; }
+    @include bp(md) { background-position: 0 27px; }
+
+    @include on-event() {
+        background-image: none;
+        color: $color-text;
+        text-decoration: none;
+    }
+
+    // reverse trans option
+    &.is-transRev {
+        &:before {
+            background-color: $color-link;
+            left: 0;
+            right: 0;
+            transition-property: left;
+        }
+
+        &:hover:before,
+        &:focus:before,
+        &:active:before {
+            left: 100%;
+        }
+    }
+
+    // grey option
+    &.is-grey:before {
+        background-color: $color-grey-rule;
+    }
+
+    // inline option
+    &.is-inline {
+        background-position: 0 21px;
+        display: inline;
+        padding-bottom: 1px;
+
+        &:before {
+            bottom: 0;
+        }
+    }
+}
+
+.Button--transRule {
+    @include Button--transRule();
+
+    // current object style
+    &.is-active.is-transRev:before { background-color: $color-link; }
+    &.is-active { color: $color-text; }
+}
+
+
+/**
+ * Button as data-toggle.
+ */
+
+.Modal-close,
+[data-toggle],
+[data-toggle-fold] {
+    cursor: pointer;
+}

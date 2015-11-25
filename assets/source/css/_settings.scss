@@ -1,0 +1,181 @@
+
+/* ==========================================================================
+
+   VARIABLE SETTINGS
+
+   ========================================================================== */
+
+/**
+ * Colours
+ */
+
+$color-black           : #333;
+$color-text            : $color-black;
+$color-text-grey       : lighten($color-text,25%); //rgba($color-text,0.7);
+$color-text-lite       : rgba($color-text,0.5);
+$color-text-rule       : rgba($color-text,0.4);
+$color-text-tint       : rgba($color-text,0.2);
+$color-white           : white;
+$color-grey            : #999;
+$color-grey-rule       : rgba($color-grey,0.4);
+$color-link            : $color-text;
+$color-link-rule       : rgba($color-link,0.7);
+$color-bg              : #fdfdfd;
+$color-bg-neutral      : #F5F4F5;
+$color-brand           : #0071bc;
+$color-brand-dark      : darken($color-brand, 10%);
+$color-brand-alt       : #D4BCD3;
+$color-fold            : rgba($color-brand,0.15);
+
+
+/**
+ * Type sizes
+ */
+
+$base-font-size-unit   : 21;
+$base-font-size        : $base-font-size-unit * 1px;
+$base-line-height-unit : 1.5;
+$base-line-height      : ($base-font-size-unit * $base-line-height-unit) * 1px; //28.5
+
+$sizeCaption   : 14;
+$sizeQuote     : 17;
+$sizeText      : $base-font-size;
+$sizeHeaderSm  : 26;
+$sizeHeader    : 24;
+$sizeHeaderLg  : 51;
+
+$r-sizeCaption   : rem(13);
+$r-sizeQuote     : rem(16);
+$r-sizeText      : rem($base-font-size-unit);
+$r-sizeHeader    : rem(19);
+$r-sizeHeaderSm  : rem($base-font-size-unit + 5);
+
+
+/**
+ * Column sizes
+ *
+ =========================================================================
+ todo: as map?
+ =========================================================================
+ */
+
+$container             : rem(960);
+$columnText            : rem(704);  //44rem
+$columnPicture         : rem(880);  //55rem
+$columnWidePicture     : rem(1024); //64rem
+
+
+/**
+ * Spaces
+ */
+
+$space-unit            : rem($base-line-height); // 39
+$space--D6             : $space-unit / 6;        // 7px
+$space--D3             : $space-unit / 3;        // 13px
+$space--D2             : $space-unit / 2;        // 20px
+$space--D1             : $space-unit / 1.33333;  // 29px
+$space                 : $space-unit * 1;        // 39px
+$space--X13            : $space-unit * 1.33333;  // 52px
+$space--X15            : $space-unit * 1.5;      // 59px
+$space--X2             : $space-unit * 2;        // 78px
+$space--X25            : $space-unit * 2.5;      // 98px
+$space--X3             : $space-unit * 3;        // 117px
+$space--X4             : $space-unit * 4;        // 156px
+$space--X5             : $space-unit * 5;        // 195px
+$space--X6             : $space-unit * 6;        // 234px
+$space--XL             : $space-unit * 10;       // 390px
+
+
+// Utilities
+// --------------------------------------------------------------------------
+
+$transitionDuration : 0.15s;
+$transitionType     : ease-out;
+
+
+/**
+ * Fonts
+ */
+
+@include font-face('LyonText-Regular', '/assets/build/fonts/LyonText-Regular');
+@include font-face('LyonText-RegularItalic', '/assets/build/fonts/LyonText-RegularItalic');
+@include font-face('LyonText-Bold', '/assets/build/fonts/LyonText-Bold');
+@include font-face('LyonText-BoldItalic', '/assets/build/fonts/LyonText-BoldItalic');
+@include font-face('FoundersGroteskCond-Lt', '/assets/build/fonts/FoundersGroteskCond-Lt');
+@include font-face('FoundersGroteskCond-Reg', '/assets/build/fonts/FoundersGroteskCond-Reg');
+@include font-face('FoundersGroteskCond-Med', '/assets/build/fonts/FoundersGroteskCond-Med');
+@include font-face('FoundersGroteskCond-Bold', '/assets/build/fonts/FoundersGroteskCond-Bold');
+
+$sans-light  : 'FoundersGroteskCond-Lt';
+$sans-reg    : 'FoundersGroteskCond-Reg';
+$sans-med    : 'FoundersGroteskCond-Med';
+$sans-bold   : 'FoundersGroteskCond-Bold';
+// $sans-black  : 'FoundersGroteskCond-Black';
+
+$serif-reg    : 'LyonText-Regular';
+$serif-reg-i  : 'LyonText-RegularItalic';
+$serif-bold   : 'LyonText-Bold';
+$serif-bold-i : 'LyonText-BoldItalic';
+
+$sans-font-stack: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$serif-font-stack: Georgia, Times, serif;
+
+$font-text                  : join($serif-reg, $serif-font-stack);
+$font-text-i                : join($serif-reg-i, $serif-font-stack);
+// $font-text-light            : join($serif-light, $serif-font-stack);
+$font-text-reg              : $font-text;
+// $font-text-med              : join($serif-med, $serif-font-stack);
+$font-text-bold             : join($serif-bold, $serif-font-stack);
+$font-text-bold-i           : join($serif-bold-i, $serif-font-stack);
+
+$font-weights: (
+    'light'     : 300,
+    'regular'   : 400,
+    'medium'    : 600,
+    'bold'      : 700,
+    'black'     : 900
+);
+
+
+/// Breakpoints map
+/// @access private
+/// @type Map
+/// @prop {String} key - breakpoint name
+/// @prop {String} value - breakpoint mapped to the key
+$breakpoints: (
+    'sm' : ( min-width:  767px ),
+    'sm-max' : ( max-width:  768px ),
+    'md' : ( min-width:  992px ),
+    'lg' : ( min-width: 1200px )
+);
+
+
+/// Z-indexes map, gathering all Z layers of the application
+/// @access private
+/// @type Map
+/// @prop {String} key - Layer’s name
+/// @prop {Number} value - Z value mapped to the key
+$z-indexes: (
+    'modal'     : 8001,
+    'overlay'   : 8000,
+    'dropdown'  : 7000,
+    'second'    : 2000,
+    'first'     : 1000,
+    'default'   : 1,
+    'below'     : -1,
+);
+
+/**
+ * Z-Index Scale (private vars)
+ */
+
+$zIndex-1           : 100;
+$zIndex-2           : 200;
+$zIndex-3           : 300;
+$zIndex-4           : 400;
+$zIndex-5           : 500;
+$zIndex-6           : 600;
+$zIndex-7           : 700;
+$zIndex-8           : 800;
+$zIndex-9           : 900;
+$zIndex-10          : 1000;

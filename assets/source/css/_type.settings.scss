@@ -1,0 +1,75 @@
+
+
+// --------------------------------------------------------------------------
+// TYPOGRAPHY SETTINGS
+// --------------------------------------------------------------------------
+
+
+// Base level
+// --------------------------------------------------------------------------
+// If req'd, set the number case to tabular lining: http://clagnut.com/sandbox/css3/
+// 1. Reset font-weight on HTML attributes for font-face use.
+
+// :root,
+html {
+    color: $color-text;
+    font-family: $font-text;
+    font-size: 80%;
+    line-height: $base-line-height-unit;
+    text-align: left;
+    text-rendering: optimizeLegibility;
+    text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    @include respond-to(md) {
+        font-size: 90%;
+    }
+
+    @include respond-to(sm) {
+        font-size: 100%;
+    }
+}
+
+
+// Text styles
+// --------------------------------------------------------------------------
+
+// h1, h2, h3, h4, h5, h6,
+ul, ol, li, dl,
+blockquote, p, address,
+table, time,
+fieldset, figure,
+pre,
+.Text {
+    @include TextRg();
+}
+
+ul {
+    // list-style-type: disc;
+    list-style-type: none;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+em,
+.u-textEm {
+    @include TypeReset();
+    font-family: $font-text-i;
+}
+
+b,
+.u-textBold {
+    @include TypeReset();
+    font-family: $font-text-bold;
+}
+
+
+// Sizes
+
+.u-textSm     { @include remFallback($sizeQuote) }
+.u-textRg     { @include remFallback($sizeText); }
+.u-textLg     { @include remFallback($sizeText); }
+// .u-sm-textRg  { @include bp(sm) { @include remFallback($sizeText); } }

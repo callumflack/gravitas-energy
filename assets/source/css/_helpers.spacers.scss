@@ -1,0 +1,197 @@
+
+
+/* ==========================================================================
+
+   SPACER HELPERS
+
+   ========================================================================== */
+
+/**
+ * Spaces
+
+$space-unit            : rem($base-line-height); // 39
+$space--D6             : $space-unit / 6;        // 7px
+$space--D3             : $space-unit / 3;        // 13px
+$space--D2             : $space-unit / 2;        // 20px
+$space--D1             : $space-unit / 1.33333;  // 29px
+$space                 : $space-unit * 1;        // 39px
+$space--X13            : $space-unit * 1.33333;  // 52px
+$space--X15            : $space-unit * 1.5;      // 59px
+$space--X2             : $space-unit * 2;        // 78px
+$space--X25            : $space-unit * 2.5;      // 98px
+$space--X3             : $space-unit * 3;        // 117px
+$space--X4             : $space-unit * 4;        // 156px
+$space--X5             : $space-unit * 5;        // 195px
+$space--X6             : $space-unit * 6;        // 234px
+$space--XL             : $space-unit * 10;       // 390px
+
+ */
+
+
+/* Margin spaces
+   ========================================================================== */
+
+@mixin spaceMargin($top: null, $bottom: null)  { margin-bottom: $bottom; margin-top: $top; }
+
+.u-margin0       { margin         : 0 !important; }
+
+.u-marginNTD3    { margin-top     : -$space--D3 !important; }
+.u-marginNTD2    { margin-top     : -$space--D2 !important; }
+.u-marginNTD1    { margin-top     : -$space--D1 !important; }
+.u-marginNT      { margin-top     : -$space !important; }
+
+.u-marginT0      { margin-top     : 0 !important; }
+.u-marginTD6     { margin-top     : $space--D6 !important; }
+.u-marginTD3     { margin-top     : $space--D3 !important; }
+.u-marginTD2     { margin-top     : $space--D2 !important; }
+.u-marginTD1     { margin-top     : $space--D1 !important; }
+
+.u-marginT       { margin-top     : $space !important; }
+.u-marginTX13    { margin-top     : $space--X13 !important; }
+.u-marginTX15    { margin-top     : $space--X15 !important; }
+.u-marginTX2     { margin-top     : $space--X2 !important; }
+.u-marginTX25    { margin-top     : $space--X25 !important; }
+.u-marginTX3     { margin-top     : $space--X3 !important; }
+.u-marginTX4     { margin-top     : $space--X4 !important; }
+.u-marginTX5     { margin-top     : $space--X5 !important; }
+.u-marginTX6     { margin-top     : $space--X6 !important; }
+.u-marginTXL     { margin-top     : $space--XL !important; }
+
+.u-marginB0      { margin-bottom  : 0 !important; }
+.u-marginBD6     { margin-bottom  : $space--D6 !important; }
+.u-marginBD3     { margin-bottom  : $space--D3 !important; }
+.u-marginBD2     { margin-bottom  : $space--D2 !important; }
+.u-marginBD1     { margin-bottom  : $space--D1 !important; }
+
+.u-marginB       { margin-bottom  : $space !important; }
+.u-marginBX13    { margin-bottom  : $space--X13 !important; }
+.u-marginBX15    { margin-bottom  : $space--X15 !important; }
+.u-marginBX2     { margin-bottom  : $space--X2 !important; }
+.u-marginBX25    { margin-bottom  : $space--X25 !important; }
+.u-marginBX3     { margin-bottom  : $space--X3 !important; }
+.u-marginBX35    { margin-bottom  : $space--X3 + rem(10) !important; }
+.u-marginBX4     { margin-bottom  : $space--X4 !important; }
+.u-marginBX5     { margin-bottom  : $space--X5 !important; }
+.u-marginBX6     { margin-bottom  : $space--X6 !important; }
+.u-marginBXL     { margin-bottom  : $space--XL !important; }
+
+.u-marginLD6     { margin-left    : $space--D6 !important; }
+.u-marginLD3     { margin-left    : $space--D3 !important; }
+.u-marginLD2     { margin-left    : $space--D2 !important; }
+.u-marginLD1     { margin-left    : $space--D1 !important; }
+.u-marginL       { margin-left    : $space !important; }
+
+.u-marginRD6     { margin-right   : $space--D6 !important; }
+.u-marginRD2     { margin-right   : $space--D2 !important; }
+.u-marginRD1     { margin-right   : $space--D1 !important; }
+.u-marginR       { margin-right   : $space !important; }
+
+
+/* Padding spaces
+   ========================================================================== */
+
+@mixin spacePadding($top: null, $bottom: null) { padding-bottom: $bottom; padding-top: $top; }
+
+.u-paddingT0    { padding-top    : 0 !important; }
+.u-paddingTD6   { padding-top    : $space--D6 !important; }
+.u-paddingTD3   { padding-top    : $space--D3 !important; }
+.u-paddingTD2   { padding-top    : $space--D2 !important; }
+.u-paddingTD1   { padding-top    : $space--D1 !important; }
+
+.u-paddingT     { padding-top    : $space !important; }
+.u-paddingTX13  { padding-top    : $space--X13 !important; }
+.u-paddingTX15  { padding-top    : $space--X15 !important; }
+.u-paddingTX2   { padding-top    : $space--X2 !important; }
+.u-paddingTX25  { padding-top    : $space--X25 !important; }
+.u-paddingTX3   { padding-top    : $space--X3 !important; }
+.u-paddingTX4   { padding-top    : $space--X4 !important; }
+.u-paddingTX5   { padding-top    : $space--X5 !important; }
+.u-paddingTX6   { padding-top    : $space--X6 !important; }
+
+.u-paddingB0    { padding-bottom : 0 !important; }
+.u-paddingBD6   { padding-bottom : $space--D6 !important; }
+.u-paddingBD3   { padding-bottom : $space--D3 !important; }
+.u-paddingBD2   { padding-bottom : $space--D2 !important; }
+.u-paddingBD1   { padding-bottom : $space--D1 !important; }
+
+.u-paddingB     { padding-bottom : $space !important; }
+.u-paddingBX13  { padding-bottom : $space--X13 !important; }
+.u-paddingBX15  { padding-bottom : $space--X15 !important; }
+.u-paddingBX2   { padding-bottom : $space--X2 !important; }
+.u-paddingBX25  { padding-bottom : $space--X25 !important; }
+.u-paddingBX3   { padding-bottom : $space--X3 !important; }
+.u-paddingBX4   { padding-bottom : $space--X4 !important; }
+.u-paddingBX5   { padding-bottom : $space--X5 !important; }
+.u-paddingBX6   { padding-bottom : $space--X6 !important; }
+.u-paddingBX61  { padding-bottom : ($space--X6 + $space) !important; }
+
+.u-paddingLD6   { padding-left   : $space--D6 !important; }
+.u-paddingLD2   { padding-left   : $space--D2 !important; }
+.u-paddingLD1   { padding-left   : $space--D1 !important; }
+.u-paddingL     { padding-left   : $space !important; }
+.u-paddingLX2   { padding-left   : $space--X2 !important; }
+
+.u-paddingRD6   { padding-right   : $space--D6 !important; }
+.u-paddingRD2   { padding-right   : $space--D2 !important; }
+.u-paddingR     { padding-right   : $space !important; }
+.u-paddingRX2   { padding-right   : $space--X2 !important; }
+
+@include respond-to(sm) {
+    .u-sm-paddingL0    { padding-left   : 0          !important; }
+    .u-sm-paddingB0    { padding-bottom : 0          !important; }
+    .u-sm-paddingBX4   { padding-bottom : $space--X4 !important; }
+
+    .u-sm-marginB0     { margin-bottom  : 0          !important; }
+    .u-sm-marginB      { margin-bottom  : $space     !important; }
+    .u-sm-marginBX2    { margin-bottom  : $space--X2 !important; }
+    .u-sm-marginTX2    { margin-top     : $space--X2 !important; }
+}
+
+
+/* Margin spaces (responsive)
+   ========================================================================== */
+
+@include bp(sm) {
+    $ratio: 0.6;
+
+    .u-marginNTD3    { margin-top     : (-$space--D3 * $ratio) !important; }
+    .u-marginNT      { margin-top     : (-$space     * $ratio) !important; }
+
+    .u-marginTD6     { margin-top     : ($space--D6  * $ratio) !important; }
+    .u-marginTD3     { margin-top     : ($space--D3  * $ratio) !important; }
+    .u-marginTD2     { margin-top     : ($space--D2  * $ratio) !important; }
+    .u-marginTD1     { margin-top     : ($space--D1  * $ratio) !important; }
+
+    .u-marginT       { margin-top     : ($space      * $ratio) !important; }
+    .u-marginTX13    { margin-top     : ($space--X13 * $ratio) !important; }
+    .u-marginTX15    { margin-top     : ($space--X15 * $ratio) !important; }
+    .u-marginTX2     { margin-top     : ($space--X2  * $ratio) !important; }
+    .u-marginTX25    { margin-top     : ($space--X25 * $ratio) !important; }
+    .u-marginTX3     { margin-top     : ($space--X3  * $ratio) !important; }
+    .u-marginTX4     { margin-top     : ($space--X4  * $ratio) !important; }
+    .u-marginTX5     { margin-top     : ($space--X5  * $ratio) !important; }
+    .u-marginTX6     { margin-top     : ($space--X6  * $ratio) !important; }
+
+    .u-marginBD6     { margin-bottom  : ($space--D6  * $ratio) !important; }
+    .u-marginBD3     { margin-bottom  : ($space--D3  * $ratio) !important; }
+    .u-marginBD2     { margin-bottom  : ($space--D2  * $ratio) !important; }
+    .u-marginBD1     { margin-bottom  : ($space--D1  * $ratio) !important; }
+
+    .u-marginB       { margin-bottom  : ($space      * $ratio) !important; }
+    .u-marginBX13    { margin-bottom  : ($space--X13 * $ratio) !important; }
+    .u-marginBX15    { margin-bottom  : ($space--X15 * $ratio) !important; }
+    .u-marginBX2     { margin-bottom  : ($space--X2  * $ratio) !important; }
+    .u-marginBX25    { margin-bottom  : ($space--X25 * $ratio) !important; }
+    .u-marginBX3     { margin-bottom  : ($space--X3  * $ratio) !important; }
+    .u-marginBX35    { margin-bottom  : ($space--X3 + rem(10) * $ratio) !important; }
+    .u-marginBX4     { margin-bottom  : ($space--X4  * $ratio) !important; }
+    .u-marginBX5     { margin-bottom  : ($space--X5  * $ratio) !important; }
+    .u-marginBX6     { margin-bottom  : ($space--X6  * $ratio) !important; }
+
+    .u-marginLD6     { margin-left    : ($space--D6  * $ratio) !important; }
+    .u-marginLD3     { margin-left    : ($space--D3  * $ratio) !important; }
+    .u-marginLD2     { margin-left    : ($space--D2  * $ratio) !important; }
+    .u-marginL       { margin-left    : ($space      * $ratio) !important; }
+
+    .u-paddingRX2   { padding-right   : ($space--X2  * $ratio) !important; }
+}

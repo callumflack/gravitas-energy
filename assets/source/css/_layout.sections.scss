@@ -1,0 +1,85 @@
+
+
+// --------------------------------------------------------------------------
+// SECTIONS
+// --------------------------------------------------------------------------
+
+
+.Section {
+    margin: $space * 3 0;
+}
+
+.Section#Who {
+    background-color: lighten($color-brand-alt,15%);
+    border-bottom: rem(5) solid $color-text;
+    border-top: rem(5) solid $color-text;
+    padding: $space * 2.5 0;
+    position: relative;
+
+    > .Section-item {
+        margin-bottom: 0;
+    }
+
+    .Who-directive {
+        position: absolute;
+        bottom: rem(-27);
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.Section-item {
+    position: relative;
+
+    &:not(:last-child) {
+        margin-bottom: $space * 3;
+    }
+
+    &:before {
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: " ";
+        display: block;
+        height: rem(173);
+        left: rem(-191);
+        position: absolute;
+        top: -($space / 3);
+        width: rem(167);
+    }
+}
+
+.Section-item--advice:before      { background-image: url(/assets/build/img/icon_advice.png); }
+.Section-item--saving:before      { background-image: url(/assets/build/img/icon_saving.png); }
+.Section-item--sustainable:before { background-image: url(/assets/build/img/icon_sustainable.png); }
+
+.Section-intro {
+    font-family: $font-text-bold;
+
+    span { font-family: $font-text-bold-i; }
+}
+
+.Section-directive {
+    margin: $space * 3 auto;
+    position: relative;
+    text-align: center;
+
+    &:before {
+        background-color: $color-text;
+        content: "";
+        display: block;
+        height: rem(5);
+        position: absolute;
+        top: calc(50% - #{(rem(5) * 0.5)});
+        width: 100%;
+    }
+
+    &.Section-directive--light {
+        margin: $space*2 0 ($space * 1.5);
+
+        &:before {
+            height: rem(1);
+            top: calc(50% - #{(rem(1) * 0.5)});
+        }
+    }
+}

@@ -1,0 +1,91 @@
+
+
+// --------------------------------------------------------------------------
+// INTERACTIVE RULE TRANSITION
+// @url: http://ianlunn.github.io/Hover/
+// 1. Use rem because padding % is proportional to height?
+// --------------------------------------------------------------------------
+
+
+@mixin RuleTransition(
+    $color: $color-text,
+    $reverse: false
+
+) {
+
+    @include smoothTransition();
+    display: inline-block;
+    border-radius: 0;
+    padding-bottom: 0;
+    position: relative;
+    color: $color-white;
+
+    &:before {
+        background-color: $color-white;
+        bottom: 0;
+        content: "";
+        height: rem(1);
+        left: 0;
+        position: absolute;
+        right: 100%;
+        transition-property: right;
+        transition-duration: $transitionDuration;
+        transition-timing-function: $transitionType;
+        z-index: -1;
+
+        @include respond-to(sm) {
+            height: rem(1);
+        }
+    }
+
+    @include on-event() {
+        color: $color-white;
+        padding-bottom: rem(0);
+    }
+
+    &:hover:before,
+    &:focus:before,
+    &:active:before,
+    &.is-active:before {
+        right: 0;
+    }
+
+    &:focus:before,
+    &:active:before,
+    &.is-active:before {
+        background-color: $color;
+    }
+
+    // for this project, the link underline is a background-image
+    // background-image: $linkRuleBlack;
+    // background-repeat: repeat-x;
+    // background-size: 2px 2px;
+    // background-position: 0 30px;
+    // color: $color-text;
+    // text-decoration: none;
+
+    // @include bp(sm) { background-position: 0 24px; }
+    // @include bp(md) { background-position: 0 27px; }
+
+    @if $reverse == true {
+        &:before {
+            left: 0;
+            right: 0;
+            transition-property: right;
+        }
+
+        &:hover:before,
+        &:focus:before,
+        &:active:before {
+            right: 100%;
+        }
+    }
+}
+
+.RuleTransition {
+    @include RuleTransition();
+
+    // current object style
+    &.is-active.is-transRev:before { background-color: $color-link; }
+    &.is-active { color: $color-text; }
+}

@@ -1,0 +1,54 @@
+
+
+// --------------------------------------------------------------------------
+
+// HEADER LAYOUT
+
+// --------------------------------------------------------------------------
+
+
+.Footer {
+    background-color: $color-bg-neutral;
+}
+
+.Footer-nav {
+    border-top: 1px solid $color-grey-rule;
+    padding: $space 0;
+    position: relative;
+}
+
+.Footer-logo {
+    margin-bottom: 0;
+
+    a {
+        background-image: none;
+    }
+
+    img {
+        height: rem(40);
+        // @include respond-to(sm) { height: rem(60); }
+    }
+}
+
+.Footer-meta {
+    margin-top: rem(16);
+
+    li,
+    p,
+    a {
+        @include u-link(none);
+        @include TextSm();
+        color: $color-grey !important;
+        font-family: $sans-reg;
+        letter-spacing: 0.03em;
+        line-height: 1.35;
+        margin: 0;
+    }
+
+    li:not(:last-child) {
+        margin-right: $space * 0.3;
+    }
+}
+
+.Footer-menu {
+}

@@ -1,0 +1,76 @@
+
+
+// --------------------------------------------------------------------------
+// HEADER LAYOUT
+// --------------------------------------------------------------------------
+
+
+.Header {
+    background-color: $color-bg-neutral;
+    max-height: rem(700);
+}
+
+.Header-nav {
+    margin: $space 0;
+    position: relative;
+}
+
+.Header-logo {
+    margin-bottom: 0;
+
+    a {
+        background-image: none;
+    }
+
+    img {
+        height: rem(40);
+        // @include respond-to(sm) { height: rem(60); }
+    }
+}
+
+.Header-menu {
+    position: absolute;
+    top: rem(13);
+    right: 0;
+    margin: 0;
+
+    li {
+        @include TextSm();
+        color: $color-white;
+        display: inline-block;
+        margin: 0;
+    }
+
+    li:not(:last-child) {
+        margin-right: $space * 0.3;
+    }
+
+    li:last-child:before {
+        content: "•";
+        display: inline-block;
+        margin-right: $space * 0.3;
+    }
+
+    li a {
+        @include u-link(none);
+        @include RuleTransition();
+    }
+
+}
+
+.Header-directive {
+    margin-top: $space * 2;
+
+    p {
+        @include remFallback($base-font-size-unit + 1);
+        color: $color-white;
+
+        span {
+            @include remFallback($base-font-size-unit + 5);
+            font-family: $sans-bold;
+            letter-spacing: 0.02em;
+            line-height: $base-font-size * 1.5;
+        }
+    }
+
+}

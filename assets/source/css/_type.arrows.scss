@@ -1,0 +1,66 @@
+
+/* ==========================================================================
+
+    TYPOGRAPHIC ARROWS
+
+   ========================================================================== */
+
+.arrow-holder {
+    display: inline-block;
+    background-position: 0 19px!important;
+}
+
+.arrow {
+    display: block;
+    float: right;
+    margin-top: .5em;
+    border-color: transparent;
+    border-top-color: #D00;
+    border-style: solid;
+    border-width: .5em .31em 0;
+    width: 0;
+    height: 0;
+    position: relative;
+    line-height: 0;
+}
+
+.arrow-up {
+    border-width: 0 .31em .5em;
+    border-top-color: transparent;
+    border-bottom-color: #FA0;
+}
+
+.arrow-left {
+    border-width: .31em 0.5em .31em .0;
+    border-top-color: transparent;
+    border-right-color: #04F;
+}
+
+.arrow-right {
+    border-width: .31em 0 .31em .5em;
+    border-top-color: transparent;
+    border-left-color: $color-text-grey;
+    margin-left: rem(5);
+
+    @include when-inside('.arrow-holder:hover') {
+        border-left-color: $color-brand;
+    }
+}
+
+
+// bootstrap stylee
+// See: https://css-tricks.com/snippets/css/css-triangle/
+.Arrow-right:after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    // margin-left: .25rem;
+    margin-left: .35rem;
+    vertical-align: middle;
+    content: "";
+    border-top: .3em solid transparent;
+    border-bottom: .3em solid transparent;
+    border-left: .3em solid;
+
+    transform: translateY(rem(-2));
+}

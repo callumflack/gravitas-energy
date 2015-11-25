@@ -1,0 +1,38 @@
+
+/* ==========================================================================
+
+    CONTACT BLOCK ELEMENT
+
+   ========================================================================== */
+
+.Contact {
+    position: relative;
+    display: block !important;
+    overflow: hidden !important;
+    width: auto !important;
+}
+
+.Contact + .Contact {
+    margin-top: $space--D6;
+    padding-top: 3px;
+}
+
+.Contact-details {
+    @include TextRg();
+    @include font-weight('bold');
+    color: $color-text-lite;
+    line-height: 1.2;
+    position: relative;
+
+    span {
+        @include font-weight('regular');
+        color: inherit;
+        display: block;
+        font-size: $sizeCaption;
+        margin: 2px 0 0;
+    }
+
+    @include when-inside('.Header-byline') {
+        color: $color-white;
+    }
+}

@@ -1,0 +1,51 @@
+/* ==================================================================
+
+    LAYOUT
+
+   ================================================================== */
+
+/**
+ * Body
+ */
+
+body {
+    height: 100%;
+    overflow-y: scroll;
+    padding: 0;
+
+    // @include respond-to(md) { padding: 0; }
+    // @include respond-to(sm) { padding: 0 5rem; }
+}
+
+
+/**
+ * HTML5 content blocks.
+ */
+
+.Nav,
+.Header,
+.Section,
+.Article,
+.Footer {
+}
+
+
+/**
+ * The content column container.
+ */
+
+.Container {
+    @include clearfix();
+    margin: 0 auto;
+    max-width: $container;
+    padding: 0 $space--D1;
+    position: relative;
+
+    @include respond-to(sm) {
+        padding: 0;
+    }
+}
+
+// .Container--textColumn { max-width: $columnWidePicture; }
+.Container--projects   { max-width: 100%; @include respond-to(md) { max-width: $columnWidePicture; } }
+.Container--full       { max-width: 100%; }
