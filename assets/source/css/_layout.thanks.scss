@@ -1,0 +1,31 @@
+
+
+// --------------------------------------------------------------------------
+// THANKS PAGE LAYOUT
+// --------------------------------------------------------------------------
+
+
+.page-thanks {
+    background-color: $color-bg-neutral;
+}
+
+/* uncss:ignore */
+.page-thanks .Header {
+    height: rem(600);
+}
+
+/* uncss:ignore */
+.page-thanks .Header h1,
+.page-thanks .Header p {
+    color: $color-text;
+}
+
+.page-thanks {
+    .Header-menu li a,
+    .Header-menu li:last-child:before,
+    .Header-menu li a:before {
+        background-color: $color-grey;
+        border-color: $color-grey;
+        color: $color-grey;
+    }
+}

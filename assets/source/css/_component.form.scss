@@ -5,7 +5,7 @@
 // --------------------------------------------------------------------------
 
 
-#Contact {
+#contact {
     background-color: $color-bg-neutral;
     margin-top: $space * 3;
     padding-bottom: $space * 3;
@@ -44,5 +44,34 @@ select {
 
     @include on-event() {
         outline: 0;
+    }
+}
+
+// http://bavotasan.com/2011/style-select-box-using-only-css/
+// http://red-team-design.com/making-html-dropdowns-not-suck/
+.Select-styled {
+    @include remFallback($base-font-size-unit - 1);
+    color: $color-text-lite;
+    margin: 0 0 ($space * 0.5);
+    position: relative;
+
+    select {
+        color: $color-text-lite;
+    }
+
+    &:after {
+        border-top: .3em solid;
+        border-left: .3em solid transparent;
+        border-right: .3em solid transparent;
+        content: "";
+        display: block;
+        height: 0;
+        margin-left: .35rem;
+        position: absolute;
+        right: $space * 0.5;
+        top: 50%;
+        transform: translateY(rem(-2));
+        vertical-align: middle;
+        width: 0;
     }
 }

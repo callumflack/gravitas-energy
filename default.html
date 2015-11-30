@@ -1,8 +1,6 @@
 {% capture content %}
-    <!-- {{ body }} -->
-
     <div class="Container">
-        <section class="Section" id="What">
+        <section class="Section" id="what">
             <div class="Section-item u-before1of12 u-size7of12">
                 <h2 class=""><span>What we do</span></h2>
                 <p class="Section-intro"> {{meta['what']}} <span>How?</span></p>
@@ -21,24 +19,24 @@
             </div>
         </section>
 
-        <section class="Section" id="Who">
+        <section class="Section" id="who">
             <div class="Section-item u-size7of12 Grid-cell--center">
                 <h3 class="">{{meta['who-headline']}}</h3>
                 <p class="">{{meta['who']}}</p>
             </div>
             <p class="Who-directive">
-                <a class="Button" href="#Contact">Get Started<i class="Arrow-right"></i></a>
+                <a class="Button" href="#contact">Get Started<i class="Arrow-right"></i></a>
             </p>
         </section>
 
-        <section class="Section" id="About">
+        <section class="Section" id="about">
             <div class="Section-item u-before1of12 u-size9of12">
                 <h2 class=""><span>About Us</span></h2>
                 <h3 class="">{{meta['about-headline']}}</h3>
                 <p class="">{{meta['about']}}</p>
-                <img class="u-marginT" src="/assets/build/img/accreditation_logos.png" alt="Gravitas Energy accreditations">
+                <p>{{meta['accredited']}}</p>
+                <img class="" style="height:88px" src="/assets/build/img/accreditation-logos.jpg" alt="Gravitas Energy accreditations">
             </div>
-
         </section>
 
     </div>

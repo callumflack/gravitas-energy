@@ -7,21 +7,16 @@
     <meta name="viewport", content="width=device-width, initial-scale=1.0" >
     <title>{{site.title}}</title>
     <meta name='description' content='{{ site.meta.description }}' >
-    <meta name="author", content='pattern.works + ellisjones.com.au' >
+    <meta name="author", content=' {{site.title}} ' >
     <meta name="handheldfriendly", content="true" >
     <meta name="mobileoptimized", content="320" >
     <link rel="canonical" href="http://www.gravitasenergy.com.au">
     <link rel="stylesheet" href="/assets/build/css/styles.css">
     <link rel="alternate" type="application/rss+xml" href="{{site.feed_url}}" />
 </head>
-<body>
-
-    {% include 'partials/header' %}
+<body class="page-thanks">
 
     {{ content }}
-
-    {% include 'partials/form' %}
-    {% include 'partials/footer' %}
 
 </body>
 </html>

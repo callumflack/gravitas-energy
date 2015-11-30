@@ -58,13 +58,14 @@
 @mixin Display() {
     @include TypeReset();
     @include remFallback($sizeHeaderLg);
-    border-bottom: 1px solid $color-white;
+    border-bottom: 1px solid currentColor;
     color: $color-white;
     font-family: $sans-light;
     letter-spacing: 0.03em;
     line-height: 1;
     margin-bottom: $space * 0.75;
     padding-bottom: $space * 0.25;
+    text-transform: lowercase;
 
     @include respond-to(sm) {
 

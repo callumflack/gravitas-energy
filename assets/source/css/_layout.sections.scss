@@ -6,13 +6,15 @@
 
 
 .Section {
-    margin: $space * 3 0;
+    margin: 0 0 $space * 3 0;
+    padding-top: $space * 3;
 }
 
-.Section#Who {
+.Section#who {
     background-color: lighten($color-brand-alt,15%);
     border-bottom: rem(5) solid $color-text;
     border-top: rem(5) solid $color-text;
+    margin-bottom: 0;
     padding: $space * 2.5 0;
     position: relative;
 

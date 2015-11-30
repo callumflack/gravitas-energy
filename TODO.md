@@ -1,14 +1,16 @@
 ===================================================
 TODO
 ===================================================
-- hubspot form???
 - form validation (hubspot?)
-— input fields label appears when in focus
-- select dropdown caret; see bootstrap
+— form input fields label appears when in focus
+- formkeep message not showing in zapier hubspot template
+
 - file upload? (add file clip icon)
 — fix gulp autoprefixer:
-> Error: "/stdin" is not in the SourceMap autoprefixer
-> https://github.com/dlmanning/gulp-sass/issues/394
-
-— performance: uncss it
+    - Error: "/stdin" is not in the SourceMap autoprefixer
+    - https://github.com/dlmanning/gulp-sass/issues/394
+— performance
+    - svg on IE?
+    - modernizr it?
+- production: uncss it
 - cross-browser, back to IE10?

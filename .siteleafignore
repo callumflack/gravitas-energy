@@ -12,6 +12,7 @@ bower_components
 bower_components/**
 config/**
 config.ru
+default.orig.html
 fontcustom.yml
 Gemfile
 Guardfile

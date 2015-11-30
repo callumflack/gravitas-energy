@@ -67,19 +67,17 @@ gulp.task('sass', function () {
         .pipe(sass(sassOptions).on('error', sass.logError))
         // .pipe(sourcemaps.write()) // -------------------------------- https://github.com/dlmanning/gulp-sass/issues/394
         .pipe(autoprefixer(autoprefixerOptions))
-        // .pipe(uncss({
-        //     ignore: [
-        //         '.Header-byline h1',
-        //         '.Header-byline p',
-        //         '.Header-byline a'
-        //     ],
-        //     html: [
-        //         '_layouts/*.html',
-        //         '_partials/*.html',
-        //         'default.html',
-        //         'thanks.html'
-        //     ]
-        // }))
+        .pipe(uncss({
+            ignore: [
+                
+            ],
+            html: [
+                '_layouts/*.html',
+                '_partials/*.html',
+                'default.html',
+                'thanks.html'
+            ]
+        }))
         .pipe(gulp.dest(output.sass));
 });
 
