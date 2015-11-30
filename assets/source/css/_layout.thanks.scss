@@ -11,7 +11,9 @@
 
 /* uncss:ignore */
 .page-thanks .Header {
-    height: rem(600);
+    height: auto;
+    margin-bottom: $space * 2;
+    @include respond-to(xs) { margin-bottom: $space * 3; }
 }
 
 /* uncss:ignore */

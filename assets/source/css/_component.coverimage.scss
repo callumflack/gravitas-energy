@@ -6,7 +6,7 @@
 
 // 1. Enable use w/ ''.FlexEmbed'
 @mixin CoverImage($darkInside: false) {
-    background-position: 50%;
+    background-position: 58% 50%;
     background-repeat: no-repeat;
     background-size: cover;
     display: block;
@@ -42,6 +42,10 @@
 
     a {
         // @include u-link(none);
+    }
+
+    @include respond-to(sm) {
+        background-position: 50%;
     }
 }
 

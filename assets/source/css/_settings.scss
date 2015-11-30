@@ -110,7 +110,6 @@ $sans-light  : 'FoundersGroteskCond-Lt';
 $sans-reg    : 'FoundersGroteskCond-Reg';
 $sans-med    : 'FoundersGroteskCond-Med';
 $sans-bold   : 'FoundersGroteskCond-Bold';
-// $sans-black  : 'FoundersGroteskCond-Black';
 
 $serif-reg    : 'LyonText-Regular';
 $serif-reg-i  : 'LyonText-RegularItalic';
@@ -143,10 +142,11 @@ $font-weights: (
 /// @prop {String} key - breakpoint name
 /// @prop {String} value - breakpoint mapped to the key
 $breakpoints: (
-    'sm' : ( min-width:  767px ),
+    'xs'     : ( min-width:  600px ),
+    'sm'     : ( min-width:  767px ),
     'sm-max' : ( max-width:  768px ),
-    'md' : ( min-width:  992px ),
-    'lg' : ( min-width: 1200px )
+    'md'     : ( min-width:  992px ),
+    'lg'     : ( min-width: 1200px )
 );
 
 

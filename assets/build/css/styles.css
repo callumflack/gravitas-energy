@@ -464,10 +464,6 @@ ul {
   margin-left: 25% !important;
 }
 
-.u-before5of12 {
-  margin-left: 41.66666666666667% !important;
-}
-
 /**
  * Pins to all corners by default. But when a width and/or height are
  * provided, the element will be centered in its nearest relatively-positioned
@@ -514,6 +510,10 @@ ul {
  * Supports: 2, 3, 4, 5, 6, 8, 10, 12 part
  */
 
+.u-size5of12 {
+  width: 41.66666666666667% !important;
+}
+
 .u-size1of2 {
   width: 50% !important;
 }
@@ -526,11 +526,15 @@ ul {
   width: 75% !important;
 }
 
+.u-size11of12 {
+  width: 91.66666666666666% !important;
+}
+
 /**
- * Size: breakpoint 1 (small)
+ * Size: breakpoint A1 (extra-small)
  */
 
-@media (min-width: 767px) {
+@media (min-width: 600px) {
   /**
    * Make an element shrink wrap its content.
    */
@@ -550,6 +554,64 @@ ul {
    * Make an element the width of its parent.
    */
 
+  .u-xs-before1of12 {
+    margin-left: 8.333333333333332% !important;
+  }
+
+  .u-xs-before5of12 {
+    margin-left: 41.66666666666667% !important;
+  }
+
+  /* Proportional widths: breakpoint 1 (x-small)
+     ========================================================================== */
+
+  /**
+   * Specify the proportional width of an object.
+   * Intentional redundancy build into each set of unit classes.
+   * Supports: 2, 3, 4, 5, 6, 8, 10, 12 part
+   */
+
+  .u-xs-size1of2 {
+    width: 50% !important;
+  }
+
+  .u-xs-size7of12 {
+    width: 58.333333333333336% !important;
+  }
+
+  .u-xs-size9of12 {
+    width: 75% !important;
+  }
+}
+
+/**
+ * Size: breakpoint 1 (small)
+ */
+
+@media (min-width: 600px) {
+  /**
+   * Make an element shrink wrap its content.
+   */
+
+  /**
+   * Make an element fill the remaining space.
+   * N.B. This will hide overflow.
+   */
+
+  /**
+   * An alternative method to make an element fill the remaining space.
+   * N.B. Do not use if child elements might be wider than the remaining space.
+   * In Chrome, Safari, and Firefox it results in undesired layout.
+   */
+
+  /**
+   * Make an element the width of its parent.
+   */
+
+  .u-sm-before1of12 {
+    margin-left: 8.333333333333332% !important;
+  }
+
   /* Proportional widths: breakpoint 1 (small)
      ========================================================================== */
 
@@ -558,6 +620,10 @@ ul {
    * Intentional redundancy build into each set of unit classes.
    * Supports: 2, 3, 4, 5, 6, 8, 10, 12 part
    */
+
+  .u-sm-size7of12 {
+    width: 58.333333333333336% !important;
+  }
 }
 
 /**
@@ -1173,6 +1239,10 @@ $space--XL             : $space-unit * 10;       // 390px
   margin-top: 2.95312rem !important;
 }
 
+.u-marginBD1 {
+  margin-bottom: 1.47657rem !important;
+}
+
 /* Padding spaces
    ========================================================================== */
 
@@ -1187,6 +1257,10 @@ $space--XL             : $space-unit * 10;       // 390px
   .u-marginTX15 {
     margin-top: 1.77187rem !important;
   }
+
+  .u-marginBD1 {
+    margin-bottom: 0.88594rem !important;
+  }
 }
 
 /* @media (max-width: 30em) { @content; } */
@@ -1200,6 +1274,38 @@ $space--XL             : $space-unit * 10;       // 390px
 /**
  * Hide or show things responsively
  */
+
+/* uncss:ignore */
+
+.u-hideMobile {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .u-hideMobile {
+    display: block !important;
+  }
+}
+
+/* uncss:ignore */
+
+.u-hideMobileInline {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .u-hideMobileInline {
+    display: inline-block !important;
+  }
+}
+
+/* uncss:ignore */
+
+@media (min-width: 1200px) {
+  .u-lg-textCenter {
+    text-align: center !important;
+  }
+}
 
 /**
  * Full height or width
@@ -1711,7 +1817,7 @@ body {
 .Container {
   margin: 0 auto;
   max-width: 60rem;
-  padding: 0 1.47657rem;
+  padding: 0 1.96875rem;
   position: relative;
 }
 
@@ -1725,7 +1831,7 @@ body {
   clear: both;
 }
 
-@media (min-width: 767px) {
+@media (min-width: 992px) {
   .Container {
     padding: 0;
   }
@@ -1733,7 +1839,13 @@ body {
 
 .Header {
   background-color: #F5F4F5;
-  max-height: 43.75rem;
+  max-height: 36.25rem;
+}
+
+@media (min-width: 767px) {
+  .Header {
+    height: 43.75rem;
+  }
 }
 
 .Header-nav {
@@ -1750,7 +1862,13 @@ body {
 }
 
 .Header-logo img {
-  height: 2.5rem;
+  height: 2.25rem;
+}
+
+@media (min-width: 767px) {
+  .Header-logo img {
+    height: 2.5rem;
+  }
 }
 
 .Header-menu {
@@ -1894,7 +2012,13 @@ body {
 }
 
 .Footer-logo img {
-  height: 2.5rem;
+  height: 2.25rem;
+}
+
+@media (min-width: 767px) {
+  .Footer-logo img {
+    height: 2.5rem;
+  }
 }
 
 .Footer-meta {
@@ -1947,8 +2071,14 @@ body {
 }
 
 .Section {
-  margin: 0 0 5.90625rem 0;
+  margin: 0 0 3.9375rem 0;
   padding-top: 5.90625rem;
+}
+
+@media (min-width: 600px) {
+  .Section {
+    margin-bottom: 5.90625rem;
+  }
 }
 
 .Section#who {
@@ -1976,7 +2106,13 @@ body {
 }
 
 .Section-item:not(:last-child) {
-  margin-bottom: 5.90625rem;
+  margin-bottom: 3.9375rem;
+}
+
+@media (min-width: 600px) {
+  .Section-item:not(:last-child) {
+    margin-bottom: 5.90625rem;
+  }
 }
 
 .Section-item:before {
@@ -1985,11 +2121,19 @@ body {
   background-size: contain;
   content: " ";
   display: block;
-  height: 10.8125rem;
-  left: -11.9375rem;
+  height: 7.5rem;
+  left: -10rem;
   position: absolute;
   top: -0.65625rem;
   width: 10.4375rem;
+}
+
+@media (min-width: 600px) {
+  .Section-item:before {
+    height: 10.8125rem;
+    left: -11.9375rem;
+    width: 10.4375rem;
+  }
 }
 
 .Section-item--advice:before {
@@ -2044,7 +2188,14 @@ body {
 /* uncss:ignore */
 
 .page-thanks .Header {
-  height: 37.5rem;
+  height: auto;
+  margin-bottom: 3.9375rem;
+}
+
+@media (min-width: 600px) {
+  .page-thanks .Header {
+    margin-bottom: 5.90625rem;
+  }
 }
 
 /* uncss:ignore */
@@ -2061,7 +2212,7 @@ body {
    ========================================================================== */
 
 .CoverImage {
-  background-position: 50%;
+  background-position: 58% 50%;
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
@@ -2083,10 +2234,22 @@ body {
   text-decoration: none;
 }
 
+@media (min-width: 767px) {
+  .CoverImage {
+    background-position: 50%;
+  }
+}
+
 #contact {
   background-color: #F5F4F5;
-  margin-top: 5.90625rem;
+  margin-top: 3.9375rem;
   padding-bottom: 5.90625rem;
+}
+
+@media (min-width: 600px) {
+  #contact {
+    margin-top: 5.90625rem;
+  }
 }
 
 input,

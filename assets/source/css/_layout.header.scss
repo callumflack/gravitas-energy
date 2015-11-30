@@ -7,7 +7,8 @@
 
 .Header {
     background-color: $color-bg-neutral;
-    max-height: rem(700);
+    max-height: rem(580);
+    @include respond-to(sm) { height: rem(700); }
 }
 
 .Header-nav {
@@ -23,8 +24,8 @@
     }
 
     img {
-        height: rem(40);
-        // @include respond-to(sm) { height: rem(60); }
+        height: rem(36);
+        @include respond-to(sm) { height: rem(40); }
     }
 }
 
@@ -72,5 +73,4 @@
             line-height: $base-font-size * 1.5;
         }
     }
-
 }

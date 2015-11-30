@@ -7,8 +7,9 @@
 
 #contact {
     background-color: $color-bg-neutral;
-    margin-top: $space * 3;
+    margin-top: $space * 2;
     padding-bottom: $space * 3;
+    @include respond-to(xs) { margin-top: $space * 3; }
 }
 
 .Form-grid {

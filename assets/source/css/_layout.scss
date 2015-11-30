@@ -38,10 +38,10 @@ body {
     @include clearfix();
     margin: 0 auto;
     max-width: $container;
-    padding: 0 $space--D1;
+    padding: 0 $space;
     position: relative;
 
-    @include respond-to(sm) {
+    @include respond-to(md) {
         padding: 0;
     }
 }

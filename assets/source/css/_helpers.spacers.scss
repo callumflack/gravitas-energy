@@ -86,6 +86,11 @@ $space--XL             : $space-unit * 10;       // 390px
 .u-marginRD1     { margin-right   : $space--D1 !important; }
 .u-marginR       { margin-right   : $space !important; }
 
+@include respond-to(xs) {
+    .u-xs-marginB    { margin-bottom  : $space !important; }
+}
+
+
 
 /* Padding spaces
    ========================================================================== */

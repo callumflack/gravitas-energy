@@ -1,26 +1,26 @@
 {% capture content %}
     <div class="Container">
         <section class="Section" id="what">
-            <div class="Section-item u-before1of12 u-size7of12">
+            <div class="Section-item u-xs-before1of12 u-xs-size7of12">
                 <h2 class=""><span>What we do</span></h2>
                 <p class="Section-intro"> {{meta['what']}} <span>How?</span></p>
             </div>
-            <div class="Section-item Section-item--advice u-before5of12 u-size7of12">
+            <div class="Section-item Section-item--advice u-xs-before5of12 u-xs-size7of12 u-before3of12 u-size9of12">
                 <h3 class="">Expert advice</h3>
                 <p class="">{{meta['reason-expert-advice']}}</p>
             </div>
-            <div class="Section-item Section-item--sustainable u-before3of12 u-size7of12">
+            <div class="Section-item Section-item--sustainable u-before3of12 u-xs-size7of12 u-size9of12">
                 <h3 class="">Switch to sustainable power</h3>
                 <p class="">{{meta['reason-sustainable']}}</p>
             </div>
-            <div class="Section-item Section-item--saving u-before5of12 u-size7of12">
+            <div class="Section-item Section-item--saving u-xs-before5of12 u-xs-size7of12 u-before3of12 u-size9of12">
                 <h3 class="">Start saving</h3>
                 <p class="">{{meta['reason-saving']}}</p>
             </div>
         </section>
 
         <section class="Section" id="who">
-            <div class="Section-item u-size7of12 Grid-cell--center">
+            <div class="Section-item u-xs-size7of12 u-size9of12 Grid-cell--center">
                 <h3 class="">{{meta['who-headline']}}</h3>
                 <p class="">{{meta['who']}}</p>
             </div>
@@ -30,12 +30,12 @@
         </section>
 
         <section class="Section" id="about">
-            <div class="Section-item u-before1of12 u-size9of12">
+            <div class="Section-item u-xs-before1of12 u-xs-size9of12">
                 <h2 class=""><span>About Us</span></h2>
                 <h3 class="">{{meta['about-headline']}}</h3>
-                <p class="">{{meta['about']}}</p>
-                <p>{{meta['accredited']}}</p>
-                <img class="" style="height:88px" src="/assets/build/img/accreditation-logos.jpg" alt="Gravitas Energy accreditations">
+                <p class="">{{meta['about']}} <span>{{meta['accredited']}}</span></p>
+                <!-- <p>{{meta['accredited']}}</p> -->
+                <img class="" style="@media(min-width:767px){height:88px}" src="/assets/build/img/accreditation-logos.jpg" alt="Gravitas Energy accreditations">
             </div>
         </section>
 

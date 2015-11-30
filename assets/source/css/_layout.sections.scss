@@ -6,8 +6,9 @@
 
 
 .Section {
-    margin: 0 0 $space * 3 0;
+    margin: 0 0 $space * 2 0;
     padding-top: $space * 3;
+    @include respond-to(xs) { margin-bottom: $space * 3; }
 }
 
 .Section#who {
@@ -34,7 +35,8 @@
     position: relative;
 
     &:not(:last-child) {
-        margin-bottom: $space * 3;
+        margin-bottom: $space * 2;
+        @include respond-to(xs) { margin-bottom: $space * 3; }
     }
 
     &:before {
@@ -43,11 +45,17 @@
         background-size: contain;
         content: " ";
         display: block;
-        height: rem(173);
-        left: rem(-191);
+        height: rem(120);
+        left: rem(-160);
         position: absolute;
         top: -($space / 3);
         width: rem(167);
+
+        @include respond-to(xs) {
+            height: rem(173);
+            left: rem(-191);
+            width: rem(167);
+        }
     }
 }
 

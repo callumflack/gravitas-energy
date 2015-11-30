@@ -13,9 +13,21 @@
     @include respond-to(sm) { display: none !important; }
 }
 
+/* uncss:ignore */
 .u-hideMobile {
     display: none;
-    @include respond-to(sm) { display: block !important; }
+    @include respond-to(xs) { display: block !important; }
+}
+
+/* uncss:ignore */
+.u-hideMobileInline {
+    display: none;
+    @include respond-to(xs) { display: inline-block !important; }
+}
+
+/* uncss:ignore */
+.u-lg-textCenter {
+  @include respond-to(lg) { text-align: center !important; }
 }
 
 
@@ -44,7 +56,7 @@
 
 .sm-SectionRuler {
     @include SectionRuler();
-    
+
     @include respond-to(sm) {
         display: none;
     }
