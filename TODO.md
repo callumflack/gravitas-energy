@@ -1,4 +1,18 @@
 ===================================================
+DEETS
+===================================================
+
+- Siteleaf CMS
+- Siteleaf requires account credentials auth for this project
+$ siteleaf server
+$ siteleaf push theme
+
+- DNSimple.com manages nameservers
+- see project dir for logins (Gmail for work, domain registrar)
+- form = formkeep > zapier > hubspot
+
+
+===================================================
 TODO
 ===================================================
 - form validation (hubspot?)
