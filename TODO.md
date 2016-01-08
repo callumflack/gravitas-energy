@@ -15,6 +15,7 @@ $ siteleaf push theme
 ===================================================
 TODO
 ===================================================
+- update form to formspree.io?
 - form validation (hubspot?)
 — form input fields label appears when in focus
 - formkeep message not showing in zapier hubspot template

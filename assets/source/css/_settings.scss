@@ -99,6 +99,7 @@ $transitionType     : ease-out;
 
 @include font-face('LyonText-Regular', '/assets/build/fonts/LyonText-Regular');
 @include font-face('LyonText-RegularItalic', '/assets/build/fonts/LyonText-RegularItalic');
+@include font-face('LyonText-SemiboldItalic', '/assets/build/fonts/LyonText-SemiboldItalic');
 @include font-face('LyonText-Bold', '/assets/build/fonts/LyonText-Bold');
 @include font-face('LyonText-BoldItalic', '/assets/build/fonts/LyonText-BoldItalic');
 @include font-face('FoundersGroteskCond-Lt', '/assets/build/fonts/FoundersGroteskCond-Lt');
@@ -113,6 +114,7 @@ $sans-bold   : 'FoundersGroteskCond-Bold';
 
 $serif-reg    : 'LyonText-Regular';
 $serif-reg-i  : 'LyonText-RegularItalic';
+$serif-med-i  : 'LyonText-SemiboldItalic';
 $serif-bold   : 'LyonText-Bold';
 $serif-bold-i : 'LyonText-BoldItalic';
 
@@ -123,7 +125,7 @@ $font-text                  : join($serif-reg, $serif-font-stack);
 $font-text-i                : join($serif-reg-i, $serif-font-stack);
 // $font-text-light            : join($serif-light, $serif-font-stack);
 $font-text-reg              : $font-text;
-// $font-text-med              : join($serif-med, $serif-font-stack);
+$font-text-med-i            : join($serif-med-i, $serif-font-stack);
 $font-text-bold             : join($serif-bold, $serif-font-stack);
 $font-text-bold-i           : join($serif-bold-i, $serif-font-stack);
 

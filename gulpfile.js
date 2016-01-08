@@ -3,7 +3,7 @@
 // Hugo Giraudel's: http://www.sitepoint.com/simple-gulpy-workflow-sass/
 // Jordan Bowman's siteleaf=specific effort: https://github.com/jrdnbwmn/my-siteleaf
 // See also: https://markgoodyear.com/2014/01/getting-started-with-gulp/
-// UnCSS: https://github.com/ben-eb/gulp-uncss (see ignoring selectors)
+// UnCSS: https://github.com/ben-eb/gulp-uncss 
 // cssnano: https://github.com/ben-eb/gulp-cssnano
 // sprites: https://www.liquidlight.co.uk/blog/article/creating-svg-sprites-using-gulp-and-sass/
 // svg sprites:
@@ -54,6 +54,7 @@ var output = {
 };
 var sassOptions = { outputStyle: 'expanded' };
 var autoprefixerOptions = { browsers: ['last 2 versions', '> 5%', 'Firefox ESR'] };
+// var uncssOptions = { uncssrc: 'uncssrc.json' }; // unsuccessful: https://github.com/giakki/uncss/issues/136
 
 
 // -----------------------------------------------------------------------------
@@ -67,6 +68,7 @@ gulp.task('sass', function () {
         .pipe(sass(sassOptions).on('error', sass.logError))
         // .pipe(sourcemaps.write()) // -------------------------------- https://github.com/dlmanning/gulp-sass/issues/394
         .pipe(autoprefixer(autoprefixerOptions))
+        // .pipe(uncss(uncssOptions)) // uncssrc file attempt unsuccessful
         .pipe(uncss({
             ignore: [
                 'u-size5of12',

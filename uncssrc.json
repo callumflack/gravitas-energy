@@ -1,0 +1,21 @@
+{
+    "ignore": [
+        "u-size5of12",
+        "u-size11of12",
+        "u-xs-size1of2",
+        "u-xs-size5of12",
+        "u-xs-size7of12",
+        "u-xs-size9of12",
+        "u-xs-before1of12",
+        "u-sm-size1of2",
+        "u-sm-size9of12",
+        "u-sm-before1of12",
+        "u-xs-marginB"
+    ],
+    "html": [
+        "_layouts/*.html",
+        "_partials/*.html",
+        "default.html",
+        "thanks.html"
+    ]
+}

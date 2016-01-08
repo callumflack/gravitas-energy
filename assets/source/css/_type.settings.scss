@@ -65,11 +65,3 @@ b,
     @include TypeReset();
     font-family: $font-text-bold;
 }
-
-
-// Sizes
-
-.u-textSm     { @include remFallback($sizeQuote) }
-.u-textRg     { @include remFallback($sizeText); }
-.u-textLg     { @include remFallback($sizeText); }
-// .u-sm-textRg  { @include bp(sm) { @include remFallback($sizeText); } }
