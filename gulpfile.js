@@ -3,7 +3,7 @@
 // Hugo Giraudel's: http://www.sitepoint.com/simple-gulpy-workflow-sass/
 // Jordan Bowman's siteleaf=specific effort: https://github.com/jrdnbwmn/my-siteleaf
 // See also: https://markgoodyear.com/2014/01/getting-started-with-gulp/
-// UnCSS: https://github.com/ben-eb/gulp-uncss 
+// UnCSS: https://github.com/ben-eb/gulp-uncss
 // cssnano: https://github.com/ben-eb/gulp-cssnano
 // sprites: https://www.liquidlight.co.uk/blog/article/creating-svg-sprites-using-gulp-and-sass/
 // svg sprites:
@@ -66,7 +66,7 @@ gulp.task('sass', function () {
         .src(input.sass)
         .pipe(sourcemaps.init())
         .pipe(sass(sassOptions).on('error', sass.logError))
-        // .pipe(sourcemaps.write()) // -------------------------------- https://github.com/dlmanning/gulp-sass/issues/394
+        .pipe(sourcemaps.write()) // -------------------------------- https://github.com/dlmanning/gulp-sass/issues/394
         .pipe(autoprefixer(autoprefixerOptions))
         // .pipe(uncss(uncssOptions)) // uncssrc file attempt unsuccessful
         .pipe(uncss({
